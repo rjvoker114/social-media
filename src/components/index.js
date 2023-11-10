@@ -1,5 +1,19 @@
 import TextInput from "./TextInput";
-import CustomButton from "./CustomButton";
 import Loading from "./Loading";
+import CustomButton from "./CustomButton";
+import TopBar from "./Header";
+import ProfileCard from "./ProfileCard";
+import FriendsCard from "./FriendsCard";
+import PostCard from "./PostCard";
+import EditProfile from "./EditProfile";
 
-export { TextInput, CustomButton, Loading };
+export {
+  Loading,
+  TextInput,
+  CustomButton,
+  TopBar,
+  ProfileCard,
+  FriendsCard,
+  PostCard,
+  EditProfile,
+};
