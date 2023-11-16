@@ -156,7 +156,7 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
           </div>
 
           <span className='text-ascent-2'>
-            {/* {moment(post?.createdAt ?? "2023-05-25").fromNow()} */}
+            {moment(post?.createdAt ?? "2023-05-25").fromNow()}
           </span>
         </div>
       </div>
