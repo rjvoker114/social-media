@@ -10,13 +10,19 @@ import {
   TextInput,
   TopBar,
 } from "../components";
-import { suggest, requests, } from "../assets/data";
+import { suggest, requests } from "../assets/data.js";
 import { Link } from "react-router-dom";
 import { NoProfile } from "../assets";
 import { BsFiletypeGif, BsPersonFillAdd } from "react-icons/bs";
 import { BiImages, BiSolidVideo } from "react-icons/bi";
 import { useForm } from "react-hook-form";
-import { apiRequest, fetchPosts, handleFileUpload } from "../utilities";
+import {
+  apiRequest,
+  deletePost,
+  fetchPosts,
+  handleFileUpload,
+  likePost,
+} from "../utilities";
 
 const Home = () => {
   const { user, edit } = useSelector((state) => state.user);
@@ -74,8 +80,20 @@ const Home = () => {
 
     setLoading(false);
   };
-  const handleLikePost = async () => {};
-  const handleDelete = async () => {};
+  const handleLikePost = async (uri) => {
+    await likePost({ uri: uri, token: user?.token });
+
+    await fetchPost();
+  };
+  const handleDelete = async (postId) => {
+    try {
+      await deletePost({ id: postId, token: user?.token });
+      await fetchPost();
+    } catch (error) {
+      console.error("Error while deleting:", error);
+    }
+  };
+
   const fetchFriendRequest = async () => {};
   const fetchSuggestedFriends = async () => {};
   const handleFriendRequest = async () => {};
@@ -208,8 +226,8 @@ const Home = () => {
                   key={post?._id}
                   post={post}
                   user={user}
-                  deletePost={() => {}}
-                  likePost={() => {}}
+                  deletePost={handleDelete}
+                  likePost={handleLikePost}
                 />
               ))
             ) : (

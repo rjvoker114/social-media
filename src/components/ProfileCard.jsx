@@ -10,7 +10,7 @@ import {
 } from "react-icons/bs";
 import { FaTwitterSquare } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
-// import moment from "moment";
+
 
 import { NoProfile } from "../assets";
 import { UpdateProfile } from "../redux/userSlice";
@@ -87,7 +87,7 @@ const ProfileCard = ({ user }) => {
           <div className='flex items-center justify-between'>
             <span className='text-ascent-2'>Joined</span>
             <span className='text-ascent-1 text-base'>
-              {/* {moment(user?.createdAt).fromNow()} */}
+             
             </span>
           </div>
         </div>

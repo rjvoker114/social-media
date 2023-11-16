@@ -15,7 +15,7 @@ export const apiRequest = async ({ url, token, data, method }) => {
       data: data,
       headers: {
         "content-type": "application/json",
-        Authorization: token ? `Bearer${token}` : "",
+        Authorization: token ? `Bearer ${token}` : "",
       },
     });
 
@@ -64,7 +64,7 @@ export const likePost = async ({ uri, token }) => {
     const res = await apiRequest({
       url: uri,
       token: token,
-      method: "POSTS",
+      method: "POST",
     });
 
     return res;
@@ -76,11 +76,11 @@ export const likePost = async ({ uri, token }) => {
 export const deletePost = async ({ id, token }) => {
   try {
     const res = await apiRequest({
-      url: "/posts" + id,
+      url: "/posts/" + id,
       token: token,
       method: "DELETE",
     });
-    return;
+    return res;
   } catch (error) {
     console.log(error);
   }
@@ -137,3 +137,4 @@ export const viewUserProfile = async (token, id) => {
     console.log(error);
   }
 };
+
