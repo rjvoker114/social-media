@@ -18,7 +18,7 @@ const Profile = () => {
   const [userInfo, setUserInfo] = useState(user);
   const [loading, setLoading] = useState(false);
 
-  const uri = "/post/get-user-post/" + id;
+  const uri = "/posts/get-user-post/" + id;
 
   const getUser = async () => {
     const res = await getUserInfo(user?.token, id);
